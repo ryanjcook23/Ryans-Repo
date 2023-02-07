@@ -10,8 +10,8 @@ function setup(){
 }
 
 
-function polarPoint(r = .5){
- 
+function polarPoint(r){
+ r = 5
  x = r * sin(mouseX)
  y = r * cos(mouseY)
 
