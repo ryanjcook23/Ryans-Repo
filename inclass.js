@@ -1,13 +1,5 @@
+let myarray = ["indiana","university","purdue", "university","indianapolis"]
 
-let daytime = document.getElementById("daytime")
-function checkResponse (time){
+console.log(myarray)
 
-
-if(time=="Morning"){
-    daytime.innerHTML("that is correct")
-}else {
-
-
-}
-console.log(time)
-}
+if()
