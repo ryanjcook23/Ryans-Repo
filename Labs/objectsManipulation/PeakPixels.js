@@ -1,13 +1,10 @@
-let square = {
-    height: 100,
-    width: 100,
-    xpos: 200,
-    ypos: 150,
-  
-}
 
 
-function draw(square){
-    fill(20,190,15)
-   rect(square.height, square.width, xpos, ypos)
+function bigger(){
+let x = document.getElementById('main');
+var xHeight = "120px"
+var xWidth = "120px"
+x.style.width = xWidth
+x.style.height = xHeight
+
 }

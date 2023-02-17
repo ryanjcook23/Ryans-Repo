@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #main{
-            height:100px;
-            width: 100px;background-color:green;
-            cursor: pointer;
+        .mydiv{
+            width:100;
+            height:100;
+            background-color: blue;
         }
     </style>
 </head>
 <body>
-    <div id="main" onclick= "bigger()"></div>
-    <script src="PeakPixels.js"></script>
+    <div class="mydiv"
+    onmouseover="this.style.backgroundColor='black'"
+    onmouseout="this.style.backgroundColor='blue'"></div>
 </body>
 </html>
