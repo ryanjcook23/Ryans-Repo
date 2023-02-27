@@ -19,19 +19,27 @@ function setup(){
     background(1)
 }
 
+
+
+
 function draw(){
+
+
 fill(180,30,200)
 rect (RectOne.x, RectOne.y, RectOne.width, RectOne.height)
 fill(100,70,200)
     rect(RectTwo.x,RectTwo.y,RectTwo.width, RectTwo.height)
 
     
-}
-function KeyPressed(){
-    if(KeyIsDown(UP_ARROW)){
-        y = +3;
+    if(keyIsDown(UP_ARROW)){
+        RectOne.y += 5;
+        RectTwo.y -= 3;
     }
-    if(KeyIsDown(DOWN_ARROW)){
-        y = -3;
+    if(keyIsDown(DOWN_ARROW)){
+        RectOne.y -= 3;
+        RectTwo.y += 3;
     }
+    
 }
+console.log(draw)
+
