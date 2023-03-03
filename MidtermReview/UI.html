@@ -7,18 +7,33 @@
     <title>Document</title>
     <style>
        
-       #div  {
+       .div  {
     width: 100px;
     height: 100px;
     border: 1px solid;
-    justify-content: center;
-    display: flex;
+    justify-content: space-around;
+    display: inline-flex;
     background-color: white;
-    
+    cursor: pointer;
+    align-items: center;
     
     
  }
+
+ .topdiv {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    justify-content: space-around;
+    display: inline-flex;
+    background-color: white;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 265px;
+    
+ }
  
+
   
     </style>
 </head>
@@ -30,17 +45,23 @@
     <br />
     <br />
     
-<div id="div" onclick="change()" >hotdog</div>
-<br />
-<div id="div">burger</div>
-<br />
-<div id="div">pizza</div>
-<br />
-<div id="div">steak</div>
-<br />
-<div id="div">pretzel</div>
-<br />
-<div id="div">chicken</div>
+    <br />
+<div>
+    <div class="topdiv" id="div7"></div>
+    <br />
+    <br />
+    <div class="div" id="div" onclick="change()">hotdog</div>
+
+<div class="div" id="div2" onclick="click2()">burger</div>
+
+<div class="div" id="div3" onclick="click3()">pizza</div>
+
+<div class="div" id="div4" onclick="click4()">steak</div>
+
+<div class="div" id="div5" onclick="click5()">pretzel</div>
+
+<div class="div" id="div6" onclick="click6()">chicken</div>
+
     <script src="UI.js"></script>
 </body>
 </html>

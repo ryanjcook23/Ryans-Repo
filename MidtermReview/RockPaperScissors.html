@@ -7,13 +7,17 @@
     <title>Document</title>
     <style>
 .buttons{ 
-    padding: 20px 32px;
+    width: 145px;
+    padding: 30px 30px;
     font-size: 18px;
     text-align: center;
     justify-content: center; 
+    display: inline;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
-.button2{ 
+#resultbox{ 
     padding: 20px 32px;
     font-size: 18px;
     text-align: center;
@@ -21,18 +25,54 @@
     
 }
 
+.h1 {
+    margin-left: 180px;
+    justify-content: center;
+}
+.h2 {
+    justify-content: center;
+    margin-left: 140px;
+    display: inline-flex;
+}
+
+.movebox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    display: inline-flex;
+    margin-left: 170px;
+    justify-content: center;
+    align-items: center;
+}
     </style>
 </head>
 <body>
 
 
+<div>
+<h1 class="h1">ROCK PAPER SCISSORS</h1>
+<br />
 
+<h2 class="h2">player score: </h2>
+<h2 class="h2">computer score:</h2>
 
+<br />
+<div class="movebox" id="choice" ></div>
+<div class="movebox"  id ="CPU"></div>
+<br />
+<br />
+<br />
+  <button class="buttons" onclick="rock()"> Rock </button> 
 
- <div class="div1"> <button class="buttons"> button </button> </div>
+  <button class="buttons" onclick="Paper()"> Paper </button>
 
- <div > <button class="button2"> button </button> </div>
-    <scirpt src="RockPaperScissors.js"></scirpt>
+  <button class="buttons" onclick="Scissors()"> Scissors </button>
+
+  <button class="buttons" onclick="Guard()">Guard</button>
+</div>
+
+ 
+<script src="RockPaperScissors.js"></script>
     
 </body>
 </html>
