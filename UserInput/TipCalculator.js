@@ -12,5 +12,6 @@ let tip = Number(price.value) * .2
 let total = tip + Number(price.value)
 
 console.log ("Tip:" + "$" + tip + ". " + "Total:" + "$" + total) 
+`Tip: $${tip}`
 
 }
