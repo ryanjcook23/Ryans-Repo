@@ -6,3 +6,4 @@ document.getElementById("output").innerHTML = "true"
         document.getElementById("output").innerHTML = "false"
     }
 }
+
