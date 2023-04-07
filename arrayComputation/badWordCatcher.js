@@ -1,9 +1,12 @@
-document.getElementById("input")
+
 
 function remove(){
+//must split input into an array at the space
+    document.getElementById("input")
 let statement = input.value
-let splitstatement = statement.split(" ")
-
+let splitstatement = statement.split(",")
+//create if statement inside of for loop to check the array
+//
 for(let i = 0 ; i < splitstatement.length; i++){
 
 if(splitstatement[i] == "clear" || splitstatement[i] == "water" || splitstatement [i] == "tires"){
@@ -16,7 +19,7 @@ if(splitstatement[i] == "clear" || splitstatement[i] == "water" || splitstatemen
 }
 
 
-   console.log(splitstatement[3]) 
+   console.log(splitstatement) 
 }
 
 
