@@ -11,14 +11,20 @@
 
     <script>
 let playerX = 200;
-let playerY = 500;
+let playerY = 750;
 let speed = 5;
-
+//having individual enemies is making it more difficult 
+//creating an array and loop would be easier to manipulate
+let enemyColumns = 10
+let enemyRows = 5
+//tried to create without using spacing element
+let enemySpace = 50
 let enemyX = 100;
 let enemyY = 100;
-let enemyWidth = 50
-let enemyHeight = 50
-let Espeed = 2;
+let enemyWidth = 35
+let enemyHeight = 35
+let Espeed = .070;
+
 
 userlazer = [];
 enemies = []
@@ -26,7 +32,13 @@ enemylazer = [];
 //need to create canvas to give the game a place to be played on
 function setup(){
 createCanvas(800,800)
-
+for(let i = 0; i < enemyRows; i++){
+    for(let j = 0; j < enemyColumns; j++){
+        let x = j * (enemyWidth + enemySpace) + enemySpace;
+        let y = i * (enemyHeight + enemySpace) + enemySpace;
+        enemies.push({x,y})
+    }
+}
 }
 
 function draw(){
@@ -34,16 +46,22 @@ function draw(){
 
     //need to create the player and enemys using rect but and i think they will be a squares
 //user
-    rect(playerX, playerY, 50, 50)
+    rect(playerX, playerY, 40, 40)
 
 //enemeies
+//need to use two loops to create rows and columsn seperatly
 for(let i = 0; i < enemies.length; i++){
     let enemy = enemies[i]
-    rect(enemyX, enemyY, )
-}
-    rect(enemyX, enemyY, 50, 50)
-    rect(enemyX, enemyY, 50, 50)
+    rect(enemyX, enemyY, enemyWidth, enemyHeight)
+    enemyX += Espeed
     
+ }
+    //rect(enemyX, enemyY, 35, 35)
+    //rect(enemyX + 50, enemyY, enemyHeight, enemyWidth)
+    //rect(enemyX + 100, enemyY, enemyHeight, enemyWidth)
+    //rect(enemyX + 150, enemyY, enemyHeight, enemyWidth)
+    //rect(enemyX + 200, enemyY, enemyHeight, enemyWidth)
+    //rect(enemyX + 250, enemyY, enemyHeight, enemyWidth)
 
     //need to figure out how to move the player?
     //should use keydown functions to control player
@@ -56,13 +74,16 @@ for(let i = 0; i < enemies.length; i++){
     if(keyIsDown(RIGHT_ARROW)){
         playerX += speed
      }
+     //user needs to be contained with an constain function
+
+     playerX = constrain(playerX, 0, width - 50)
 
     //how will i create the random movement of the enemy?
     //loop? random number gen? or simply just having them reset when hitting wall.
 
     enemyX += Espeed
 //making the enemy have a constant increase of speed and reversing when it hits the barrier
-    if(enemyX > width - 50 || enemyX < 0){
+    if(enemyX > width - 550 || enemyX < 0){
         Espeed *= -1
         enemyY += 50
 
@@ -80,9 +101,24 @@ for(let i = 0; i < userlazer.length; i++){
     let lazer = userlazer[i]
     rect(lazer[0],lazer[1], 5, 10)
     lazer[1]-= 10
-}
 
-    
+    //tried doing collisions outside of this for loop but decided it needs ot be inside
+    if(dist(lazer[0],lazer[1], enemyX + enemyWidth / 2 , enemyY + enemyHeight / 2) < enemyWidth / 2){
+        
+    }
+}
+//should be able to create enemy lazers the same as users but with the randomness
+if(random() < .01){
+    enemylazer.push([enemyX + enemyWidth/2, enemyY + enemyHeight])
+}
+//issues with getting all boxes to shoot
+    for(let i = 0; i < enemylazer.length; i++){
+        let lazer = enemylazer[i]
+        rect(200,lazer[1], 5, 10)
+        lazer[1]+=10
+
+    }
+
 }
 //creating lazers?
 //have to create loop to access the area that will the lazer
