@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+let playerX = 200;
+let playerY = 500;
+let speed = 5;
+
+let enemyX = 100;
+let enemyY = 100;
+let enemyWidth = 50
+let enemyHeight = 50
+let Espeed = 2;
+
+userlazer = [];
+enemies = []
+enemylazer = [];
+//need to create canvas to give the game a place to be played on
+function setup(){
+createCanvas(800,800)
+
+}
+
+function draw(){
+    background(0)
+
+    //need to create the player and enemys using rect but and i think they will be a squares
+//user
+    rect(playerX, playerY, 50, 50)
+
+//enemeies
+for(let i = 0; i < enemies.length; i++){
+    let enemy = enemies[i]
+    rect(enemyX, enemyY, )
+}
+    rect(enemyX, enemyY, 50, 50)
+    rect(enemyX, enemyY, 50, 50)
+    
+
+    //need to figure out how to move the player?
+    //should use keydown functions to control player
+    //if i use if statements ill need to make multiple? can i simplify it?
+
+    if(keyIsDown(LEFT_ARROW)){
+        playerX -= speed
+    }
+
+    if(keyIsDown(RIGHT_ARROW)){
+        playerX += speed
+     }
+
+    //how will i create the random movement of the enemy?
+    //loop? random number gen? or simply just having them reset when hitting wall.
+
+    enemyX += Espeed
+//making the enemy have a constant increase of speed and reversing when it hits the barrier
+    if(enemyX > width - 50 || enemyX < 0){
+        Espeed *= -1
+        enemyY += 50
+
+    }
+    //creating lazers?
+//have to create loop to access the area that will the lazer
+
+if(keyIsDown(32)){
+    
+    userlazer.push([playerX + 25 , playerY])
+
+}
+
+for(let i = 0; i < userlazer.length; i++){
+    let lazer = userlazer[i]
+    rect(lazer[0],lazer[1], 5, 10)
+    lazer[1]-= 10
+}
+
+    
+}
+//creating lazers?
+//have to create loop to access the area that will the lazer
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
