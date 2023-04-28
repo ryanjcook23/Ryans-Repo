@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+let playerX = 200;
+let playerY = 500;
+let playerSpeed = 5;
+
+let enemyX = 100;
+let enemyY = 100;
+let enemySpeed = 2;
+
+let playerLasers = [];
+let enemyLasers = [];
+
+function setup() {
+  createCanvas(400, 600);
+}
+
+function draw() {
+  background(0);
+
+  // Draw the player
+  rect(playerX, playerY, 50, 50);
+
+  // Draw the enemies
+  rect(enemyX, enemyY, 50, 50);
+  
+
+  // Move the enemies
+  enemyX += enemySpeed;
+  if (enemyX > width - 50 || enemyX < 0) {
+    enemySpeed *= -1;
+    enemyY += 50;
+  }
+
+  // Move the player
+  if (keyIsDown(LEFT_ARROW)) {
+    playerX -= playerSpeed;
+  }
+  if (keyIsDown(RIGHT_ARROW)) {
+    playerX += playerSpeed;
+  }
+
+  // Shoot lasers
+  if (keyIsDown(32)) {
+    playerLasers.push({x: playerX + 25, y: playerY});
+  }
+
+  // Draw the lasers
+  for (let i = 0; i < playerLasers.length; i++) {
+    rect(playerLasers[i].x, playerLasers[i].y, 5, 20);
+    playerLasers[i].y -= 10;
+  }
+
+  // Check for collisions between player lasers and enemies
+  for (let i = 0; i < playerLasers.length; i++) {
+    if (dist(playerLasers[i].x, playerLasers[i].y, enemyX, enemyY) < 30) {
+        enemyX -= 0
+        enemyY -= 300
+        document.getElementById('winner').innerHTML = 'winner!'
+        
+      console.log('Hit!');
+    } 
+  }
+}
+
+
+    </script>
+
+    <div id="winner"></div>
+</body>
+</html>

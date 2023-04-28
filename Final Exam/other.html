@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        let playerX, playerY, playerSpeed, playerLasers;
+
+let enemies = [];
+
+function setup() {
+  createCanvas(500, 500);
+  playerX = width / 2;
+  playerY = height - 50;
+  playerSpeed = 5;
+  playerLasers = [];
+  spawnEnemies();
+}
+
+function draw() {
+  background(0);
+
+  // Draw the player
+  rect(playerX, playerY, 50, 50);
+
+  // Move the player
+  if (keyIsDown(LEFT_ARROW)) {
+    playerX -= playerSpeed;
+  }
+  if (keyIsDown(RIGHT_ARROW)) {
+    playerX += playerSpeed;
+  }
+
+  // Shoot lasers
+  if (keyIsDown(32)) {
+    playerLasers.push({x: playerX + 25, y: playerY});
+  }
+
+  // Draw the lasers
+  for (let i = 0; i < playerLasers.length; i++) {
+    rect(playerLasers[i].x, playerLasers[i].y, 5, 20);
+    playerLasers[i].y -= 10;
+  }
+
+  // Check for collisions between player lasers and enemies
+  for (let i = 0; i < playerLasers.length; i++) {
+    for (let j = 0; j < enemies.length; j++) {
+      if (dist(playerLasers[i].x, playerLasers[i].y, enemies[j].x, enemies[j].y) < 50) {
+        playerLasers.splice(i, 1);
+        enemies.splice(j, 1);
+      }
+    }
+  }
+
+  // Draw the enemies
+  for (let i = 0; i < enemies.length; i++) {
+    rect(enemies[i].x, enemies[i].y, 50, 50);
+    enemies[i].y += 1;
+  }
+
+  // Check for collisions between the player and the enemies
+  for (let i = 0; i < enemies.length; i++) {
+    if (dist(playerX, playerY, enemies[i].x, enemies[i].y) < 50) {
+      console.log('Game over!');
+    }
+  }
+}
+
+function spawnEnemies() {
+  for (let i = 0; i < 5;){
+    let x = i * 100 + 50
+    let y = random(-500,-50)
+    enemies.push({x:x,y:y})
+  }
+}
+    </script>
+</body>
+</html>

@@ -118,7 +118,12 @@ if(random() < .01){
         lazer[1]+=10
 
     }
-
+    for(let i = 0; i < userlazer.length; i++){
+    if(dist(userlazer[i].x, userlazer[i].y, enemyX, enemyY)< 50){
+        console.log("hit")
+    }
+    
+}
 }
 //creating lazers?
 //have to create loop to access the area that will the lazer
