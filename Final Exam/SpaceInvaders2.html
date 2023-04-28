@@ -14,12 +14,15 @@ let playerX = 200;
 let playerY = 500;
 let playerSpeed = 5;
 
-let enemyX = 100;
+let enemyX = 80;
 let enemyY = 100;
-let enemySpeed = 4;
+let enemyHeight = 50
+let enemywidth = 50
+let enemySpeed = 3;
+;
 
 let playerLasers = [];
-let enemyLasers = [];
+let enemyLazer = [];
 
 function setup() {
   createCanvas(400, 600);
@@ -29,17 +32,23 @@ function draw() {
   background(0);
 
   // Draw the player
-  rect(playerX, playerY, 50, 50);
+  rect(playerX, playerY, 40, 40);
 
   // Draw the enemies
-  rect(enemyX, enemyY, 50, 50);
+  rect(enemyX, enemyY, enemyHeight, enemywidth);
+
+  
   
 
   // Move the enemies
   enemyX += enemySpeed;
-  if (enemyX > width - 50 || enemyX < 0) {
+  
+  if (enemyX > width - 50 || enemyX < 0 ) {
     enemySpeed *= -1;
     enemyY += 50;
+    
+
+
   }
 
   // Move the player
@@ -54,7 +63,16 @@ function draw() {
   if (keyIsDown(32)) {
     playerLasers.push({x: playerX + 25, y: playerY});
   }
+  if(random() < .01){
+    enemyLazer.push([enemyX + enemywidth/2, enemyY + enemyHeight])
+}
 
+for(let i = 0; i < enemyLazer.length; i++){
+        let lazer = enemyLazer[i]
+        rect(200,lazer[1], 5, 10)
+        lazer[1]+=10
+
+    }
   // Draw the lasers
   for (let i = 0; i < playerLasers.length; i++) {
     rect(playerLasers[i].x, playerLasers[i].y, 5, 20);
@@ -62,14 +80,25 @@ function draw() {
   }
 
   // Check for collisions between player lasers and enemies
-  for (let i = 0; i < playerLasers.length; i++) {
-    if (dist(playerLasers[i].x, playerLasers[i].y, enemyX, enemyY) < 30) {
-        enemyX -= 0
-        enemyY -= 300
-        document.getElementById('winner').innerHTML = 'winner!'
+  for (let i = 0; i < enemyLazer.length; i++) {
+    if (dist(enemyLazer[i].x, enemyLazer[i].y, playerY, playerX) < 50 ){
+       
+        
+       document.getElementById('winner').innerHTML = 'loser'
         
       console.log('Hit!');
-    } 
+    }
+  }
+
+  for (let i = 0; i < playerLasers.length; i++) {
+    if (dist(playerLasers[i].x, playerLasers[i].y, enemyX, enemyY) < 10 ){
+        enemyX -= 0
+        enemyY -= 800
+        
+       document.getElementById('winner').innerHTML = 'winner!'
+        
+      console.log('Hit!');
+    }
   }
 }
 

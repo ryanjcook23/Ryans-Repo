@@ -120,6 +120,8 @@ if(random() < .01){
     }
     for(let i = 0; i < userlazer.length; i++){
     if(dist(userlazer[i].x, userlazer[i].y, enemyX, enemyY)< 50){
+
+        enemyX -= 1000
         console.log("hit")
     }
     
