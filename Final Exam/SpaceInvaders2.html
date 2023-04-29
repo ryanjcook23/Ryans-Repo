@@ -38,7 +38,7 @@ function draw() {
   rect(enemyX, enemyY, enemyHeight, enemywidth);
 
   
-  
+  playerX = constrain(playerX, 0, width - 50)
 
   // Move the enemies
   enemyX += enemySpeed;
