@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+    <form action="RPS.java" method="post">
+        <label for="choice">Enter your choice (rock, paper, scissors): </label><br>
+        <input type="text" id="choice" name="choice"><br><br>
+        <input type="submit" value="Play">
+    </form>
+</body>
+</html>
