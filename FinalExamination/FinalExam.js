@@ -91,6 +91,17 @@ cards.forEach(card => {
         card.classList.remove('dragging')
     })
 })
+//rules for dropping
+//math!! need to make if statement
+//how to make it compared the card placed previously
+//need dom to manipuate
+if(card.value = card.value + 1){
+
+}
+
+if(card.value > card.value + 1 || card.value < card.value){
+//create it so card goes back to previous spot
+}
 
 //check win or loss
 //need to make check function for both
