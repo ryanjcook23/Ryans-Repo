@@ -1,0 +1,40 @@
+body { 
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #0056b3;
+
+}
+
+#journal-input{
+    margin-bottom: 60px;
+}
+
+.entry{
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.entry-time{
+    font-size: 0.9em;
+    color: #666;
+}
+

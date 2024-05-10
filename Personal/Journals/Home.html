@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: aliceblue;">
+
+    <header style="background-color: aliceblue; text-decoration: underline;">
+        <h1>Ryan's Online Journals</h1>
+    </header>
+<hr>
+    <section id="journal-entry"> <!-- Updated ID -->
+        <textarea id="journal-text" rows="15" cols="60" placeholder="Write your entry here"></textarea>
+        <br>
+        <button onclick="saveEntry()">Save Entry</button> <!-- Corrected ID -->
+       <hr>
+    
+        <button onclick="showEntries()">Show Entries</button> <!-- Corrected ID -->
+      
+    </section>
+
+    <section id="journal-entries" style="display: none;">
+        <h2>Previous Entries</h2>
+        <div id="entries-list"></div> <!-- Corrected ID -->
+    </section>
+
+    <script src="script.js"></script> <!-- Place at the end for proper script loading -->
+
+</body>
+</html>
